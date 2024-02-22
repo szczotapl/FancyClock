@@ -53,7 +53,7 @@ func main() {
 			color = colorYellow
 		}
 
-		cmd := exec.Command("toilet", "-f", filepath.Join(fontDir, "font.flf"), "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
+		cmd := exec.Command("toilet", "-d", fontDir, "-f", "font", "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
 		cmd.Stdout = os.Stdout
 
 		err := cmd.Run()
