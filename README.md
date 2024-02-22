@@ -12,6 +12,6 @@ make clean # Optionally
 ```
 #### Install via [GitMan](https://github.com/riviox/GitMan):
 ```
-gitman -S fancyclock
+gitman -S fancyclock # you still have to install Go and make :)
 ```
 ![Alt text](imgs/image.png)
