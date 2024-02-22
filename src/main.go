@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+const customFontURL = "https://raw.githubusercontent.com/riviox/FancyClock/master/src/assets/font.flf"
 const customFontFile = "/tmp/font.flf"
 
 // ANSI escape codes for colors
