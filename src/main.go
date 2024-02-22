@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"time"
 )
 
 var HOME string
+var fontDir string
 
 const (
 	colorReset  = "\033[0m"
@@ -22,9 +24,9 @@ func init() {
 		fmt.Println("Error getting home directory:", err)
 		os.Exit(1)
 	}
-}
 
-var fontDir = HOME + ".gitman/packages/fancyclock/src/"
+	fontDir = filepath.Join(HOME, ".gitman/packages/fancyclock/src")
+}
 
 func clearScreen() {
 	cmd := exec.Command("clear")
@@ -37,7 +39,6 @@ func clearScreen() {
 }
 
 func main() {
-
 	for {
 		clearScreen()
 		currentTime := time.Now()
@@ -52,7 +53,7 @@ func main() {
 			color = colorYellow
 		}
 
-		cmd := exec.Command("toilet", "-f", fontDir, "-f", "font", "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
+		cmd := exec.Command("toilet", "-f", filepath.Join(fontDir, "font.flf"), "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
 		cmd.Stdout = os.Stdout
 
 		err := cmd.Run()

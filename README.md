@@ -7,3 +7,4 @@
 ```
 gitman -S fancyclock
 ```
+![Alt text](imgs/image.png)
