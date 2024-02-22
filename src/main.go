@@ -24,7 +24,7 @@ func init() {
 	}
 }
 
-var fontDir = HOME + "/.gitman/packages/fancyclock/src/"
+var fontDir = HOME + ".gitman/packages/fancyclock/src/"
 
 func clearScreen() {
 	cmd := exec.Command("clear")
