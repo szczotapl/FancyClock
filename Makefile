@@ -3,13 +3,13 @@
 PROGRAM_NAME = fancyclock
 SRC_DIR := $(shell pwd)/src/main.go
 
-BIN_DIR = /usr/bin
+BIN_DIR = /usr/local/bin
 
 INSTALL_PATH = $(BIN_DIR)/$(PROGRAM_NAME)
 
 all: $(PROGRAM_NAME)
 
-$(PROGRAM_NAME): $(SRC_FILES)
+$(PROGRAM_NAME):
 	go build -o $(PROGRAM_NAME) $(SRC_DIR)
 
 install: $(PROGRAM_NAME)
