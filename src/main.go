@@ -7,20 +7,37 @@ import (
 	"time"
 )
 
+var HOME string
+
 const (
 	colorReset  = "\033[0m"
 	colorGreen  = "\033[32m"
 	colorYellow = "\033[33m"
-	font        = "~/.gitman/packages/FancyClock/assets/ansireg.flf"
 )
+
+func init() {
+	var err error
+	HOME, err = os.UserHomeDir()
+	if err != nil {
+		fmt.Println("Error getting home directory:", err)
+		os.Exit(1)
+	}
+}
+
+var fontDir = HOME + "/.gitman/packages/fancyclock/src/"
 
 func clearScreen() {
 	cmd := exec.Command("clear")
 	cmd.Stdout = os.Stdout
-	cmd.Run()
+
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println("Error clearing screen:", err)
+	}
 }
 
 func main() {
+
 	for {
 		clearScreen()
 		currentTime := time.Now()
@@ -35,9 +52,14 @@ func main() {
 			color = colorYellow
 		}
 
-		cmd := exec.Command("toilet", "-f", font, "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
+		cmd := exec.Command("toilet", "-f", fontDir, "-f", "font", "--filter", "metal", fmt.Sprintf("%s%s%s", color, asciiTime, colorReset))
 		cmd.Stdout = os.Stdout
-		cmd.Run()
+
+		err := cmd.Run()
+		if err != nil {
+			fmt.Println("Error executing toilet command:", err)
+		}
+
 		time.Sleep(1 * time.Second)
 	}
 }
