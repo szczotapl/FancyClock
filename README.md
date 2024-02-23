@@ -4,6 +4,10 @@
 - make
 - Go
 - toilet
+##### Install dependencies with pacman:
+```
+sudo pacman -S go make toilet
+```
 #### Manual:
 ```
 git clone https://github.com/riviox/FancyClock.git
