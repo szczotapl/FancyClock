@@ -3,6 +3,7 @@
 #### Dependencies:
 - make
 - Go
+- toilet
 #### Manual:
 ```
 git clone https://github.com/riviox/FancyClock.git
@@ -12,6 +13,6 @@ make clean # Optionally
 ```
 #### Install via [GitMan](https://github.com/riviox/GitMan):
 ```
-gitman -S fancyclock # you still have to install Go and make :)
+gitman -S fancyclock # you still have to install Go, toilet and make :)
 ```
 ![Alt text](imgs/image.png)
